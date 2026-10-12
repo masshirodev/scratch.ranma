@@ -8,7 +8,7 @@
 --     { name = "calc", argv = { "python3", "-q" }, key = "c", width = 50, height = 40 },
 --   }
 --
--- leader z opens the scratch folder; each spec's key toggles its program:
+-- leader Z (shift+z) opens the scratch folder; a spec's key toggles it:
 --   first press   start it, in a float centred over this workspace
 --   pressed again hide it, still running (focused), or focus it (shown)
 --   hidden        bring it back over the workspace you are on (a program
@@ -18,7 +18,7 @@
 --
 -- A spec: name (required), argv (a list of words) or cmd (a shell line), and
 -- optionally key, width and height (percent of the workspace), cwd and desc.
--- setup's second argument: { folder = "z" }, or folder = false to bind each
+-- setup's second argument: { folder = "shift+z" }, or folder = false to bind each
 -- spec's key at WM mode's top level instead.
 --
 -- Hidden programs are parked on a workspace of their own (scratch.workspace,

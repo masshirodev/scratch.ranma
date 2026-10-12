@@ -175,7 +175,7 @@ function M.setup(list, opts)
     names[#names + 1] = spec.name
   end
   local folder = opts.folder
-  if folder == nil then folder = "z" end
+  if folder == nil then folder = "shift+z" end
   if folder ~= false and type(folder) ~= "string" then
     error("scratch: folder is a key, or false", 2)
   end

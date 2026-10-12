@@ -40,7 +40,7 @@ pyprland's named scratchpads for ranma. In init.lua (or hako's `config`):
     { name = "calc", argv = { "python3", "-q" }, key = "c", width = 50, height = 40 },
   }
 
-leader z opens the scratch folder; each spec's key toggles its program:
+leader Z (shift+z) opens the scratch folder; a spec's key toggles it:
   first press   start it, in a float centred over this workspace
   pressed again hide it, still running (focused), or focus it (shown)
   hidden        bring it back over the workspace you are on (a program
@@ -50,7 +50,7 @@ The palette's `scratch NAME` does the same, completing the names.
 
 A spec: name (required), argv (a list of words) or cmd (a shell line), and
 optionally key, width and height (percent of the workspace), cwd and desc.
-setup's second argument: { folder = "z" }, or folder = false to bind each
+setup's second argument: { folder = "shift+z" }, or folder = false to bind each
 spec's key at WM mode's top level instead.
 
 Hidden programs are parked on a workspace of their own (scratch.workspace,
@@ -68,21 +68,21 @@ scratch.height.
 | `name` | required | Letters, digits, `_`, `.` and `-`. The pane is renamed to it, and it is the palette command's argument. |
 | `argv` | this or `cmd` | A list of words, run as they are (`{ "lazygit" }`). |
 | `cmd` | this or `argv` | A shell command line (`"btop --utf-force"`). |
-| `key` | optional | The key behind the folder (`leader z g`). Without one, the program is only reached from the palette. |
+| `key` | optional | The key behind the folder (`leader Z g`). Without one, the program is only reached from the palette. |
 | `width`, `height` | optional | Percent of the workspace, 10 to 100. Default: the `scratch.width` and `scratch.height` options. |
 | `cwd` | optional | The directory it starts in (`~/` is your home). Default: the focused pane's. |
 | `desc` | optional | What the which-key hint calls it. Default: its name. |
 
 The program sees `RANMA_SCRATCH=<name>` in its environment. An unknown field, a duplicate name, or both or neither of `argv` and `cmd` is an error where `setup` was called.
 
-`setup(specs, { folder = "z" })` picks the folder's key. `folder = false` binds each spec's key at WM mode's top level instead, under a `scratch` heading in the hint; mind that those keys then replace any of ranma's defaults they share.
+`setup(specs, { folder = "shift+z" })` picks the folder's key. `folder = false` binds each spec's key at WM mode's top level instead, under a `scratch` heading in the hint; mind that those keys then replace any of ranma's defaults they share.
 
 ### Binds and commands
 
 | Key / command | Does |
 | --- | --- |
-| `leader z` | The `+scratch` folder (in the `plugins` group), made only when a spec has a key. |
-| `leader z <key>` | Toggle that spec's program, as above. |
+| `leader Z` | The `+scratch` folder (`shift+z`, in the `plugins` group), made only when a spec has a key. Not `z`, which is zen.ranma's (tmux's zoom key). |
+| `leader Z <key>` | Toggle that spec's program, as above. |
 | `:scratch <name>` | The same from the palette (`leader :`), completing the names. |
 
 ## How a hidden program is kept
